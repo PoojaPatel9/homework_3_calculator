@@ -12,7 +12,10 @@ def test_subtraction():
 import pytest
 from calculator.operations import Calculator
 
-
+def test_add(setup_calculator):
+    calc = setup_calculator
+    result = calc.add(1, 2)  # example of a method on Calculator
+    assert result == 3
 def setup_calculator():
     Calculator.clear_history()
     return Calculator
