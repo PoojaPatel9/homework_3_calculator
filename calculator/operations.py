@@ -1,37 +1,28 @@
-from calculator.calculation import Calculation
-
-
 class Calculator:
-    """Calculator class that maintains history and performs operations."""
+    def __init__(self):
+        self.history = []
 
-    history = []
-
-    @staticmethod
-    def add(a: float, b: float) -> float:
+    def add(self, a: float, b: float) -> float:
         result = a + b
-        Calculator.history.append(Calculation("+", a, b, result))
+        self.history.append(f"Added: {a} + {b} = {result}")
         return result
 
-    @staticmethod
-    def subtract(a: float, b: float) -> float:
+    def subtract(self, a: float, b: float) -> float:
         result = a - b
-        Calculator.history.append(Calculation("-", a, b, result))
+        self.history.append(f"Subtracted: {a} - {b} = {result}")
         return result
 
-    @staticmethod
-    def multiply(a: float, b: float) -> float:
+    def multiply(self, a: float, b: float) -> float:
         result = a * b
-        Calculator.history.append(Calculation("*", a, b, result))
+        self.history.append(f"Multiplied: {a} * {b} = {result}")
         return result
 
-    @staticmethod
-    def divide(a: float, b: float) -> float:
-        if b == 0 or a==0:
-            raise ZeroDivisionError("Cannot divide by zero")
+    def divide(self, a: float, b: float) -> float:
+        if b == 0:
+            raise ZeroDivisionError("Cannot divide by zero.")
         result = a / b
-        Calculator.history.append(Calculation("/", a, b, result))
+        self.history.append(f"Divided: {a} / {b} = {result}")
         return result
 
-    @classmethod
-    def get_history(cls):
-        return [str(calc) for calc in cls.history]
+    def retrieve_history(self) -> list:
+        return self.history
