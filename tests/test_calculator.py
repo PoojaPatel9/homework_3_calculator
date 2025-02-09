@@ -10,7 +10,7 @@ def test_subtraction():
     assert subtract(2, 2) == 0 '''
 
 import pytest
-from calculator import Calculator
+from calculator.operations import Calculator
 
 
 def setup_calculator():
